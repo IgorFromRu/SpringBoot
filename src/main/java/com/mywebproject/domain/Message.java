@@ -14,6 +14,8 @@ public class Message {
     @JoinColumn(name = "user_id")       // добавляет колонку в базу user_id
     private User author;
 
+    private String filename;
+
     public Message() {
     }
 
@@ -59,4 +61,15 @@ public class Message {
         this.tag = tag;
     }
 
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    public String getFilename() {
+        return filename;
+    }
+
+    public void setFilename(String filename) {
+        this.filename = filename;
+    }
 }

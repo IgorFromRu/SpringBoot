@@ -16,19 +16,19 @@ import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("/user")
-@PreAuthorize("hasAuthority('ADMIN')")
+@PreAuthorize("hasAuthority('ADMIN')")          //даем доступ только Админу
 public class UserController {
     @Autowired
     private UserRepository userRepo;
 
     @GetMapping
     public String userList(Model model){
-        model.addAttribute("users", userRepo.findAll());
+        model.addAttribute("users", userRepo.findAll());        // выводим список пользователей
 
         return "userList";
     }
 
-    @GetMapping("{user}")
+    @GetMapping("{user}")                                               //метод изменеия данных пользователя
     public String userEditForm(@PathVariable User user, Model model){
         model.addAttribute("user", user);
         model.addAttribute("roles", Role.values());
