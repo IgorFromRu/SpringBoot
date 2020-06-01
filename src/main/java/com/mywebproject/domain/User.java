@@ -17,6 +17,9 @@ public class User implements UserDetails {
     private String password;
     private boolean active;
 
+    private String email;
+    private String activationCode;
+
     @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)               //формирует дополнительную таблицу с жадной подгзукой ролей т.е сразу подгружает роль
     @CollectionTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"))   //создает отдельную таблицу ролей и соеденяется с текущей таблицей через user_id
     @Enumerated(EnumType.STRING)                                                        //указание таблице, что Enum хранится в виде строки
@@ -89,5 +92,21 @@ public class User implements UserDetails {
 
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getActivationCode() {
+        return activationCode;
+    }
+
+    public void setActivationCode(String activationCode) {
+        this.activationCode = activationCode;
     }
 }
