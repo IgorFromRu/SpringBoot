@@ -30,7 +30,7 @@ public class Registration {
             return "registration";
         }
 
-        return "redirect:/login";                           // возвращяет на страницу логина, если регистрация успешна
+        return "redirect:/login";                                                    // возвращяет на страницу логина, если регистрация успешна
     }
 
     @GetMapping("/activate/{code}")
